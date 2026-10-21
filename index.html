@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags -->
+    <title>Sinar Hati Titahbumi - Yayasan Sinar Hati Titahbumi</title>
+    <meta name="description" content="Yayasan Sinar Hati Titahbumi adalah organisasi nirlaba yang didedikasikan untuk memajukan sektor pertanian di Indonesia, mengangkat masyarakat melalui pembangunan berkelanjutan dan bantuan kemanusiaan.">
+    <meta property="og:title" content="Yayasan Sinar Hati Titahbumi - Bersama Membangun Bangsa">
+    <meta property="og:description" content="Mari menjalin kemitraan untuk menghadirkan manfaat nyata bagi masyarakat luas melalui pertanian, pendidikan, dan kemanusiaan.">
+    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1aSAp4wf-1X7edQ-0-ciYFuXlZSYhvDkR">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            green: '#22c55e',
+                            dark: '#166534',
+                            blue: '#1d4ed8',
+                            yellow: '#eab308',
+                            red: '#ef4444',
+                            soft: '#f0fdf4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            animation: smoothFadeIn 0.4s forwards;
+        }
+        @keyframes smoothFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Hide Scrollbar for Swipeable Tabs */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-green selection:text-white" id="main-content">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3">
+                    <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/logo%20shtb.jpg?updatedAt=1792501285233&t=1792589955556" alt="Logo SHTB" class="h-10 lg:h-11 w-auto object-contain" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=150&q=auto&fm=webp';">
+                    <div>
+                        <h1 class="font-black text-base lg:text-lg leading-tight text-slate-900" id="brand-name">SINAR HATI<br><span class="text-brand-green">TITAHBUMI</span></h1>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex space-x-7 items-center font-bold text-sm">
+                    <a href="#beranda" class="text-slate-600 hover:text-brand-green transition">Beranda</a>
+                    <a href="#tentang" class="text-slate-600 hover:text-brand-green transition">Tentang</a>
+                    <a href="#dampak" class="text-slate-600 hover:text-brand-green transition">Kontribusi</a>
+                    <a href="#program" class="text-slate-600 hover:text-brand-green transition">Program</a>
+                    <a href="#galeri" class="text-slate-600 hover:text-brand-green transition">Galeri</a>
+                    <a href="#pengurus" class="text-slate-600 hover:text-brand-green transition">Pengurus</a>
+                    <a href="#kontak" class="bg-brand-green text-white px-5 py-2.5 rounded-full hover:bg-brand-dark transition shadow-lg shadow-green-200 hover:-translate-y-0.5">Mari Berkolaborasi</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Swipeable Nav Tabs -->
+        <div class="lg:hidden w-full bg-white/60 backdrop-blur-md border-t border-slate-200/50 overflow-x-auto flex items-center px-4 py-2.5 gap-3 snap-x hide-scrollbar">
+            <a href="#beranda" class="shrink-0 snap-start text-xs font-bold text-slate-700 hover:bg-brand-green hover:text-white px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200/80 transition-colors">Beranda</a>
+            <a href="#tentang" class="shrink-0 snap-start text-xs font-bold text-slate-700 hover:bg-brand-green hover:text-white px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200/80 transition-colors">Tentang Kami</a>
+            <a href="#dampak" class="shrink-0 snap-start text-xs font-bold text-slate-700 hover:bg-brand-green hover:text-white px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200/80 transition-colors">Kontribusi</a>
+            <a href="#program" class="shrink-0 snap-start text-xs font-bold text-slate-700 hover:bg-brand-green hover:text-white px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200/80 transition-colors">Program</a>
+            <a href="#galeri" class="shrink-0 snap-start text-xs font-bold text-slate-700 hover:bg-brand-green hover:text-white px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200/80 transition-colors">Galeri Foto</a>
+            <a href="#pengurus" class="shrink-0 snap-start text-xs font-bold text-slate-700 hover:bg-brand-green hover:text-white px-4 py-2 rounded-full bg-white shadow-sm border border-slate-200/80 transition-colors">Pengurus</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative pt-36 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-[90vh]">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-green-50/90 via-white to-blue-50/70"></div>
+            <div class="absolute top-10 right-0 w-96 h-96 bg-green-300/40 rounded-full mix-blend-multiply filter blur-3xl animate-[pulse_8s_ease-in-out_infinite]"></div>
+            <div class="absolute top-40 -left-20 w-96 h-96 bg-blue-300/40 rounded-full mix-blend-multiply filter blur-3xl animate-[pulse_10s_ease-in-out_infinite]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center max-w-4xl mx-auto reveal active">
+                <div class="flex justify-center mb-8">
+                    <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/logo%20shtb.jpg?updatedAt=1792501285233&t=1792589948116" alt="Logo Yayasan" class="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-white shadow-2xl object-cover hover:scale-105 transition-transform duration-500" id="hero-logo" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=150&q=auto&fm=webp';">
+                </div>
+
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-md border border-green-100 text-xs font-extrabold text-brand-green uppercase tracking-widest mb-6">
+                    <i class="fa-solid fa-leaf"></i> Bersama Membangun Bangsa
+                </span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight mb-6 leading-tight" id="hero-title">
+                    Menabur Benih Kebaikan, <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green via-emerald-600 to-brand-blue">Menumbuhkan Masa Depan</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed font-medium" id="hero-desc">
+                    Yayasan Sinar Hati Titahbumi hadir sebagai ruang kolaborasi sosial berkelanjutan. Kami membersamai masyarakat desa melalui modernisasi pertanian, pendampingan UMKM lokal, penguatan karakter generasi muda, dan ketangguhan aksi kemanusiaan.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#program" class="px-8 py-4 rounded-full bg-brand-green text-white font-bold hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-compass"></i> Jelajahi Program Kami
+                    </a>
+                    <a href="#kontak" class="hidden lg:flex px-8 py-4 rounded-full bg-white text-slate-700 font-bold border border-slate-200 hover:border-brand-green hover:text-brand-green transition-all items-center justify-center gap-2 shadow-sm hover:-translate-y-1">
+                        <i class="fa-regular fa-handshake"></i> Kemitraan Strategis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Mitra Resmi -->
+    <section class="py-10 bg-white border-y border-slate-200 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 lg:mb-8">Dipercaya & Berkolaborasi Bersama Mitra Resmi</p>
+            
+            <div class="flex flex-wrap gap-8 md:gap-10 lg:gap-14 items-center justify-center px-4 lg:px-0">
+                <div class="shrink-0 transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
+                    <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/Flag_of_the_Ministry_of_Manpower_of_Republic_of_Indonesia.png?t=1792584446657" alt="Mitra Kemenaker RI" class="h-10 md:h-12 lg:h-14 w-auto object-contain drop-shadow-sm">
+                </div>
+                <div class="shrink-0 transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
+                    <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/Kemensos.jpg?t=1792520443612" alt="Kemensos RI" class="h-10 md:h-12 lg:h-14 w-auto object-contain drop-shadow-sm">
+                </div>
+                <div class="shrink-0 transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
+                    <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/Kemenpora_Logo.png?t=1792520422220" alt="Kemenpora RI" class="h-10 md:h-12 lg:h-14 w-auto object-contain drop-shadow-sm">
+                </div>
+                <div class="shrink-0 transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
+                    <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/logo_baznas_mobile.png?t=1792520553300" alt="Baznas" class="h-10 md:h-12 lg:h-14 w-auto object-contain drop-shadow-sm">
+                </div>
+                <div class="shrink-0 transition-transform duration-300 hover:scale-110 hover:-translate-y-1">
+                    <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/logo-palang-merah-indonesia-pmi-_171128081720-840.png?t=1792589905281" alt="Mitra SHTB PMI Indonesia" class="h-10 md:h-12 lg:h-14 w-auto object-contain drop-shadow-sm rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang & Legalitas -->
+    <section id="tentang" class="py-24 bg-slate-50/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal active">
+                <span class="text-brand-green font-bold text-xs uppercase tracking-widest mb-2 block">Mengenal Lebih Dekat</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Jejak Dedikasi & Integritas Kami</h2>
+                <div class="w-20 h-1.5 bg-brand-green mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Swipeable Tab Buttons -->
+            <div class="flex overflow-x-auto sm:flex-wrap hide-scrollbar snap-x gap-3 mb-12 px-4 -mx-4 sm:mx-0 sm:px-0 sm:justify-center reveal active">
+                <button class="tab-btn shrink-0 snap-center px-6 py-3 rounded-full font-bold text-sm transition-all shadow-md bg-white text-slate-600 hover:bg-slate-100" data-target="tab-identitas">
+                    <i class="fa-solid fa-users mr-2"></i> Rekam Perjalanan
+                </button>
+                <button class="tab-btn shrink-0 snap-center px-6 py-3 rounded-full font-bold text-sm transition-all border border-slate-200 bg-white text-slate-600 hover:bg-slate-100" data-target="tab-visimisi">
+                    <i class="fa-solid fa-bullseye mr-2"></i> Visi & Misi
+                </button>
+                <button class="tab-btn shrink-0 snap-center px-6 py-3 rounded-full font-bold text-sm transition-all border border-slate-200 bg-white text-slate-600 hover:bg-slate-100" data-target="tab-nilai">
+                    <i class="fa-solid fa-heart mr-2"></i> Nilai-Nilai Utama
+                </button>
+                <button class="tab-btn shrink-0 snap-center px-6 py-3 rounded-full font-bold text-sm transition-all border border-slate-200 bg-slate-900 text-white active" data-target="tab-legalitas">
+                    <i class="fa-solid fa-file-shield mr-2"></i> Legalitas Resmi
+                </button>
+            </div>
+
+            <!-- Tab 1: Identitas -->
+            <div id="tab-identitas" class="tab-content max-w-4xl mx-auto">
+                <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm text-center relative overflow-hidden">
+                    <div class="w-20 h-20 bg-green-100 text-brand-green rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-inner"><i class="fa-solid fa-seedling"></i></div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6" id="about-title">Awal Mula & Akar Pergerakan</h3>
+                    <p class="text-lg text-slate-700 leading-relaxed" id="about-desc">
+                        Berdiri sejak tahun 2016 dari kepedulian mendalam terhadap ketahanan pangan dan kesejahteraan petani desa, Yayasan Sinar Hati Titahbumi terus tumbuh menjadi lembaga sosial terpercaya. Kami meyakini bahwa perubahan berkelanjutan lahir ketika teknologi modern, edukasi karakter, dan gotong royong masyarakat berpadu selaras menjaga kelestarian bumi nusantara.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tab 2: Visi & Misi -->
+            <div id="tab-visimisi" class="tab-content max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md transform transition hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-green-50 text-brand-green rounded-2xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-eye"></i></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4" id="visi-title">Visi Utama</h3>
+                        <p class="text-slate-600 italic leading-relaxed text-base" id="visi-desc">"Menjadi pilar penggerak pemberdayaan masyarakat pedesaan yang mandiri, inovatif dalam teknologi pertanian modern, serta tangguh dan berintegritas dalam mewujudkan kesejahteraan sosial yang adil."</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md transform transition hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-2xl flex items-center justify-center text-2xl mb-6"><i class="fa-solid fa-list-check"></i></div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Misi Pengabdian</h3>
+                        <ul class="text-sm text-slate-600 space-y-3.5">
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-green mt-1"></i><span><strong>Modernisasi Pertanian:</strong> Menerapkan inovasi IoT dan alat tepat guna bagi kelompok tani.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-green mt-1"></i><span><strong>Penguatan UMKM:</strong> Mendampingi legalitas, literasi keuangan, dan pemasaran produk lokal.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-green mt-1"></i><span><strong>Edukasi Pemuda:</strong> Membina kepemimpinan, jiwa kebangsaan, dan kewirausahaan generasi muda.</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-brand-green mt-1"></i><span><strong>Respon Kemanusiaan:</strong> Tanggap dan sigap menyalurkan bantuan sosial dan tanggap bencana.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Nilai Inti -->
+            <div id="tab-nilai" class="tab-content max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-green-50 text-brand-green rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-heart"></i></div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Integritas & Empati</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Bekerja tulus berlandaskan rasa empati pada masyarakat yang membutuhkan.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Transparansi</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Setiap dana dan program dilaporkan secara terbuka, dapat dipertanggungjawabkan.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-yellow-50 text-brand-yellow rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-handshake"></i></div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Gotong Royong</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Mengutamakan semangat kolaborasi dengan instansi, swasta, dan warga lokal.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-red-50 text-brand-red rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-lightbulb"></i></div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">Inovasi Berkelanjutan</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Terus mencari solusi praktis berbasis teknologi modern yang ramah lingkungan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: Legalitas -->
+            <div id="tab-legalitas" class="tab-content max-w-5xl mx-auto active">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-green-50 text-brand-green rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-file-signature"></i></div>
+                        <h3 class="font-bold text-slate-900 mb-2">SK Kemenkumham RI</h3>
+                        <p class="text-xs font-mono bg-slate-100 px-3 py-2 rounded-lg text-slate-700 mb-3 font-bold border border-slate-200 block truncate">AHU-0025530.AH.01.12.TAHUN 2023</p>
+                        <p class="text-sm text-slate-600">Sah berbadan hukum Indonesia melalui Akta Notaris untuk kepastian hukum dalam beroperasi.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-stamp"></i></div>
+                        <h3 class="font-bold text-slate-900 mb-2">Akta Notaris</h3>
+                        <p class="text-xs font-mono bg-slate-100 px-3 py-2 rounded-lg text-slate-700 mb-3 font-bold border border-slate-200 block truncate">No. 01 / 11 Okt 2023</p>
+                        <p class="text-sm text-slate-600">Dokumen legalitas otentik yang mengesahkan pendirian dan anggaran dasar yayasan SHTB.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-briefcase"></i></div>
+                        <h3 class="font-bold text-slate-900 mb-2">NIB (Nomor Induk Berusaha)</h3>
+                        <p class="text-xs font-mono bg-slate-100 px-3 py-2 rounded-lg text-slate-700 mb-3 font-bold border border-slate-200 block truncate">2407230228345</p>
+                        <p class="text-sm text-slate-600">Izin resmi dari sistem Online Single Submission (OSS) sebagai identitas legal lembaga.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-handshake-angle"></i></div>
+                        <h3 class="font-bold text-slate-900 mb-2">Tanda Daftar Dinsos</h3>
+                        <p class="text-xs font-mono bg-slate-100 px-3 py-2 rounded-lg text-slate-700 mb-3 font-bold border border-slate-200 block truncate">400.9.12.3/1091-Dayasos/2024</p>
+                        <p class="text-sm text-slate-600">Terregistrasi resmi sebagai Lembaga Kesejahteraan Sosial (LKS) pada Dinas Sosial setempat.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-yellow-50 text-brand-yellow rounded-xl flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                        <h3 class="font-bold text-slate-900 mb-2">NPWP Wajib Pajak</h3>
+                        <p class="text-xs font-mono bg-slate-100 px-3 py-2 rounded-lg text-slate-700 mb-3 font-bold border border-slate-200 block truncate">39.728.981.0-416.000</p>
+                        <p class="text-sm text-slate-600">Tercatat di KPP Pratama dan patuh melaporkan kewajiban pajak lembaga secara berkala.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PETA DAMPAK & WILAYAH KERJA -->
+    <section id="dampak" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal active">
+                <span class="text-brand-green font-bold text-xs uppercase tracking-widest mb-2 block">Akuntabilitas & Capaian Kinerja</span>
+                <h2 class="text-3xl md:text-5xl font-black mb-4">Rekam Jejak Dampak & Wilayah Kerja</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">Sejak tahun 2016, kami berkomitmen pada implementasi program yang terukur. Statistik berikut merupakan laporan kumulatif dari proyek berkelanjutan yang telah dilaksanakan bersama para mitra dan masyarakat.</p>
+            </div>
+
+            <!-- Stats Counter Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 reveal active">
+                <div class="bg-slate-800/80 p-6 md:p-8 rounded-3xl border border-slate-700 text-center hover:border-brand-green transition-all">
+                    <div class="text-3xl md:text-5xl font-black text-brand-green mb-2">20+</div>
+                    <div class="text-sm font-bold text-slate-300">Kemitraan Lintas Lembaga</div>
+                    <div class="text-xs text-slate-500 mt-1">Kami menjalin Kerjasama dengan Lembaga/Yayasan NGO dalam membangun Kemitraan Strategis </div>
+                </div>
+                <div class="bg-slate-800/80 p-6 md:p-8 rounded-3xl border border-slate-700 text-center hover:border-brand-blue transition-all">
+                    <div class="text-3xl md:text-5xl font-black text-brand-blue mb-2">500+</div>
+                    <div class="text-sm font-bold text-slate-300">Keluarga Penerima Manfaat</div>
+                    <div class="text-xs text-slate-500 mt-1">Distribusi dukungan ketahanan pangan terdata secara berkala</div>
+                </div>
+                <div class="bg-slate-800/80 p-6 md:p-8 rounded-3xl border border-slate-700 text-center hover:border-brand-yellow transition-all">
+                    <div class="text-3xl md:text-5xl font-black text-brand-yellow mb-2">150+</div>
+                    <div class="text-sm font-bold text-slate-300">UMKM Skala Desa Terbina</div>
+                    <div class="text-xs text-slate-500 mt-1">Pendampingan izin usaha, literasi keuangan & optimalisasi produk</div>
+                </div>
+                <div class="bg-slate-800/80 p-6 md:p-8 rounded-3xl border border-slate-700 text-center hover:border-brand-red transition-all">
+                    <div class="text-3xl md:text-5xl font-black text-brand-red mb-2">500+</div>
+                    <div class="text-sm font-bold text-slate-300">Pemuda Tersertifikasi</div>
+                    <div class="text-xs text-slate-500 mt-1">Penyelesaian program inkubasi kepemimpinan bersama Kemenpora RI</div>
+                </div>
+            </div>
+
+            <!-- Testimonial Highlight -->
+            <div class="bg-gradient-to-r from-slate-800 to-slate-800/90 p-8 md:p-10 rounded-3xl border border-slate-700 reveal active">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-brand-green">
+                        <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/WhatsApp%20Image%202026-10-20%20at%2002.41.39.jpeg?updatedAt=1792498188861&t=1792596584192" alt="Testimoni Petani" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-quote-left text-2xl text-brand-green mb-2 block"></i>
+                        <p class="text-slate-300 italic text-sm md:text-base mb-3">"Instalasi teknologi penyiraman otomatis IoT di lahan percontohan kami mengoptimalkan efisiensi air hingga 40%. Evaluasi lapangan menunjukkan peningkatan stabilitas produksi hasil panen secara terukur."</p>
+                        <div class="font-bold text-white text-sm">Pak Ujang- <span class="text-brand-green font-normal">Ketua Kelompok Tani Desa Binaan</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program -->
+    <section id="program" class="py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal active">
+                <span class="text-brand-green font-bold tracking-widest text-xs uppercase mb-2 block">Fokus Pergerakan Utama</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Program Aksi & Pemberdayaan Strategis</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">Klik pada salah satu pilar program di bawah ini untuk melihat dokumentasi galeri foto kegiatan.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal active">
+                <a href="#galeri" class="program-link block bg-white rounded-3xl p-7 shadow-sm border border-slate-100 hover:border-brand-green hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-green-50 text-brand-green rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2 flex justify-between items-center" id="prog1-title">
+                        Pertanian Modern (IoT)
+                        <i class="fa-solid fa-arrow-right text-brand-green opacity-0 group-hover:opacity-100 transition-opacity text-sm"></i>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">Penerapan sensor kelembaban dan otomatisasi irigasi pintar berbasis IoT di 44 desa untuk meningkatkan efisiensi lahan dan hasil panen para petani.</p>
+                </a>
+                
+                <a href="#galeri" class="program-link block bg-white rounded-3xl p-7 shadow-sm border border-slate-100 hover:border-brand-blue hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2 flex justify-between items-center" id="prog2-title">
+                        Edukasi Kepemudaan
+                        <i class="fa-solid fa-arrow-right text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity text-sm"></i>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">Kolaborasi dengan Kemenpora RI dalam menggelar seminar, diskusi kebangsaan, dan pelatihan kepemimpinan agar pemuda desa mandiri dan berkarakter.</p>
+                </a>
+                
+                <a href="#galeri" class="program-link block bg-white rounded-3xl p-7 shadow-sm border border-slate-100 hover:border-brand-red hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-red-50 text-brand-red rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2 flex justify-between items-center" id="prog3-title">
+                        Aksi Kemanusiaan
+                        <i class="fa-solid fa-arrow-right text-brand-red opacity-0 group-hover:opacity-100 transition-opacity text-sm"></i>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">Penyaluran sembako rutin, Untuk warga , serta aksi cepat tanggap mendirikan dapur umum dan logistik korban bencana.</p>
+                </a>
+                
+                <a href="#galeri" class="program-link block bg-white rounded-3xl p-7 shadow-sm border border-slate-100 hover:border-brand-yellow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-yellow-50 text-brand-yellow rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2 flex justify-between items-center" id="prog4-title">
+                        Pemberdayaan UMKM
+                        <i class="fa-solid fa-arrow-right text-brand-yellow opacity-0 group-hover:opacity-100 transition-opacity text-sm"></i>
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-4">Pendirian Taman Bacaan Masyarakat (TBM) serta pendampingan wirausaha lokal (UMKM) bagi kaum ibu dan pemuda desa agar roda ekonomi keluarga bertumbuh.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AKUNTABILITAS & TRANSPARANSI DANA -->
+    <section id="transparansi" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal active">
+                <span class="text-brand-blue font-bold text-xs uppercase tracking-widest mb-2 block">Laporan Tata Kelola</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Prinsip Akuntabilitas & Transparansi</h2>
+                <div class="w-20 h-1.5 bg-brand-blue mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">Kepercayaan mitra donatur dan masyarakat adalah amanah tertinggi. Kami berkomitmen melaporkan setiap penggunaan alokasi donasi secara jujur.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 reveal active">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-green-100 text-brand-green rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">85% Alokasi Langsung</h3>
+                    <p class="text-sm text-slate-600">Disalurkan langsung untuk pengadaan bahan, alat pertanian IoT, bantuan sembako, dan operasional program pemberdayaan di lapangan.</p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 text-brand-blue rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Pelaporan Publik</h3>
+                    <p class="text-sm text-slate-600">Laporan kegiatan dan pemanfaatan dana dikirimkan berkala kepada para mitra donatur serta instansi pembina terkait.</p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 text-center">
+                    <div class="w-16 h-16 mx-auto bg-yellow-100 text-brand-yellow rounded-full flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Teraplikasi Audit Legal</h3>
+                    <p class="text-sm text-slate-600">Seluruh pencatatan keuangan dikelola sesuai standar akuntansi nirlaba dan diawasi oleh Dewan Pengawas Yayasan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALUR KEMITRAAN / CARA BERKOLABORASI -->
+    <section class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal active">
+                <span class="text-brand-green font-bold text-xs uppercase tracking-widest mb-2 block">Panduan Kemitraan</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">4 Langkah Mudah Berkolaborasi</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto text-sm">Proses mudah dan transparan bagi instansi pemerintah, perusahaan (CSR), maupun perorangan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal active">
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 relative">
+                    <div class="text-4xl font-black text-slate-200 mb-3">01</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">Diskusi Inisiasi</h3>
+                    <p class="text-xs text-slate-600">Hubungi tim kami via WA/Email untuk menyampaikan gagasan atau kebutuhan program CSR Anda.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 relative">
+                    <div class="text-4xl font-black text-slate-200 mb-3">02</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">Penyusunan Proposal</h3>
+                    <p class="text-xs text-slate-600">Tim menyusun rancangan program, anggaran alokasi, dan target penerima manfaat secara detail.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 relative">
+                    <div class="text-4xl font-black text-slate-200 mb-3">03</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">Eksekusi Lapangan</h3>
+                    <p class="text-xs text-slate-600">Implementasi kegiatan bersama masyarakat lokasi sasaran dengan pendampingan tim relawan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 relative">
+                    <div class="text-4xl font-black text-slate-200 mb-3">04</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">Laporan Pertanggungjawaban</h3>
+                    <p class="text-xs text-slate-600">Penyampaian laporan pertanggungjawaban (LPJ) terperinci lengkap beserta dokumentasi kegiatan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media & Gallery -->
+    <section id="galeri" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal active">
+                <span class="text-brand-blue font-bold tracking-widest text-xs uppercase mb-2 block">Album Kenangan & Kerja Nyata</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Galeri Foto Dokumentasi Kegiatan</h2>
+                <div class="w-20 h-1.5 bg-brand-green mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">Bukti nyata dedikasi dan kehangatan kebersamaan kami bersama warga di berbagai wilayah pengabdian.</p>
+            </div>
+
+            <!-- 12 FOTO GALERI -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal active">
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><a href="https://www.bangbara.com/nasional/pr-3692583933/dibalik-suksesnya-sistem-teknologi-pertanian-kbb-ada-kelompok-tani-sinarhati-titahbumi-ini-dia-profilnya" target="_blank"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/ToT.webp?t=1792590498553" alt="Smart Farming" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></a></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">Agraria</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Inovasi Smart Farming</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/WhatsApp%20Image%202026-10-20%20at%2002.24.30%20(1).jpeg?t=1792593433740" alt="Kemenkraf" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">EKONOMI KREATIF</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Bimtek Pelaku UMKM Kreatif</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/PXL_20231024_045823829.MP.jpg?t=1792591918307" alt="Galeri 3" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">Desa</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Bantuan Kelompok Tani</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><a href="https://bantenexpres.com/front/br/yayasan-sinar-hati-titahbumi-gelar-seminar-penguatan-idiologi-pancasila-di-kalangan-pemuda" target="_blank"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/PXL_20231014_054930765.jpg?t=1792590908689" alt="Kemenpora RI" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></a></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">kemenpora ri</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Membangun Karakter Bangsa</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/dinsoskota.jpg?t=1792596141917" alt="Galeri 5" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">Kemitraan</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Silaturahmi Instansi</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/PXL_20241230_061509123.jpg?t=1792595807731" alt="Galeri 6" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">UMKM</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Bantuan Pelaku  UMKM</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/PXL_20240921_023428254(1).jpg?t=1792595376722" alt="Galeri 7" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">SEMINAR</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Seminar Peran Pemuda</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/putri%20indonesia.jpg?t=1792592625638" alt="Galeri 8" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">Membaca</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Taman Baca Anak Desa</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/WhatsApp%20Image%202026-10-20%20at%2002.24.20.jpeg?t=1792593064613" alt="Galeri 9" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">Bakti Sosial</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Berbagi Berkah</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/234355039_4291408677614009_1554395552713178427_n.jpg?t=1792596250119" alt="Galeri 10" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">Sosialisasi</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Penyuluhan Petani</h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><a href="https://www.indonesiaterbit.it.com/2024/12/10-pelaku-umkm-di-suka-asih-terima-50.html" target="_blank"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/umkm.jpg?t=1792591325238&t=1792591343757" alt="Dinsos RI Kearifan Lokal" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></a></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">Kearifan lokal</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Penyaluran Bantuan </h3></div></div>
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-white"><div class="aspect-[4/3] overflow-hidden bg-slate-100"><a href="https://www.primetimenews.co.id/news-flash/2701645528/yayasan-sinar-hati-titah-bumi-kota-tangerang-terima-kunjungan-tim-akreditasi-balks-dan-dinsos" target="_blank"><img src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/lks.webp?t=1792591024160&t=1792591215655" alt="BALKS Dinsos" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></a></div><div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity pointer-events-none"></div><div class="absolute bottom-0 left-0 w-full p-5 translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none"><span class="bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block uppercase tracking-wider pointer-events-auto border border-white/20">akreditasi LKS</span><h3 class="text-white font-bold text-base leading-tight mb-1 pointer-events-auto">Kunjungan Tim Akreditasi BALKS dan Dinsos</h3></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengurus -->
+    <section id="pengurus" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal active">
+                <span class="text-brand-green font-bold text-xs uppercase tracking-widest mb-2 block">Struktur Organisasi</span>
+                <h2 class="text-3xl md:text-4xl font-black mb-4">Keluarga Besar SHTB</h2>
+                <p class="text-slate-400 text-sm md:text-base">Pengurus dan jajaran pimpinan yang berdedikasi menjaga amanah kebaikan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 reveal active">
+                <div class="bg-slate-800/90 p-6 rounded-3xl border-l-4 border-brand-green flex items-center gap-4 transition hover:-translate-y-1 shadow-xl">
+                    <div class="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center shrink-0 border border-slate-600 overflow-hidden">
+                        <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/WhatsApp%20Image%202026-10-20%20at%2002.24.30(1)(1).jpeg?updatedAt=1792503416075&t=1792596488254" alt="Mukmin Kusnendar" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-brand-green uppercase tracking-wider mb-1">Ketua Pembina (Pendiri)</div>
+                        <div class="text-xl font-bold">Mukmin Kusnendar</div>
+                    </div>
+                </div>
+                <div class="bg-slate-800/90 p-6 rounded-3xl border-l-4 border-slate-500 flex items-center gap-4 transition hover:-translate-y-1 shadow-xl">
+                    <div class="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center shrink-0 border border-slate-600 overflow-hidden">
+                        <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/blank%20hijab.jpg?updatedAt=1792503685037&t=1792596499922" alt="Dian Tri Nurjayanti" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Ketua Pengawas</div>
+                        <div class="text-xl font-bold">Dian Tri Nurjayanti</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 reveal active">
+                <div class="bg-slate-800/50 p-6 rounded-3xl border border-slate-700 text-center hover:bg-slate-800 transition-colors">
+                    <div class="w-16 h-16 mx-auto bg-slate-700 rounded-full mb-3 border border-slate-600 overflow-hidden">
+                        <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/WhatsApp%20Image%202026-10-20%20at%2002.41.49(2).jpeg?updatedAt=1792503264561&t=1792596477578" alt="Achmad Taoefik" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-2">Sekretaris</div>
+                    <div class="text-lg font-bold">Achmad Taoefik</div>
+                </div>
+                <div class="bg-gradient-to-br from-brand-dark to-brand-green p-6 rounded-3xl shadow-2xl border border-green-500/30 text-center transform md:-translate-y-4">
+                    <div class="w-20 h-20 mx-auto bg-slate-700 rounded-full mb-3 border-2 border-white shadow-lg overflow-hidden">
+                        <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/WhatsApp%20Image%202026-10-20%20at%2002.24.29.jpeg?updatedAt=1792498181057&t=1792596527304" alt="Andri Irawan" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-xs font-bold text-green-100 uppercase tracking-wider mb-2 border-b border-green-400/50 pb-2 inline-block">Ketua Yayasan</div>
+                    <div class="text-2xl font-black mt-1">Andri Irawan</div>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-3xl border border-slate-700 text-center hover:bg-slate-800 transition-colors">
+                    <div class="w-16 h-16 mx-auto bg-slate-700 rounded-full mb-3 border border-slate-600 overflow-hidden">
+                        <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/WhatsApp%20Image%202026-10-20%20at%2002.41.49(1).jpeg?updatedAt=1792503264569&t=1792596466291" alt="Hery Prasetio" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-xs font-bold text-brand-yellow uppercase tracking-wider mb-2">Bendahara</div>
+                    <div class="text-lg font-bold">Hery Prasetio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ / TANYA JAWAB INFORMASIONAL -->
+    <section class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal active">
+                <span class="text-brand-green font-bold text-xs uppercase tracking-widest mb-2 block">Pusat Informasi</span>
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Pertanyaan Umum (FAQ)</h2>
+                <p class="text-slate-600 text-sm">Segala hal yang sering ditanyakan seputar kegiatan & kemitraan kami.</p>
+            </div>
+
+            <div class="space-y-4 reveal active">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-base mb-2"><i class="fa-solid fa-circle-question text-brand-green mr-2"></i> Bagaimana bentuk penyaluran dana donasi yang kami titipkan?</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Donasi disalurkan dalam bentuk pengadaan teknologi irigasi pertanian otomatis, bibit, sembako, biaya operasional pelatihan pemuda, serta renovasi fasilitas umum desa binaan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-base mb-2"><i class="fa-solid fa-circle-question text-brand-blue mr-2"></i> Apakah pihak perusahaan (CSR) bisa menentukan wilayah sasaran program?</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Sangat bisa. Kami siap menyesuaikan lokasi sasaran program pemberdayaan sesuai wilayah operasional atau mandat kebijakan CSR dari perusahaan Anda.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-base mb-2"><i class="fa-solid fa-circle-question text-brand-yellow mr-2"></i> Bagaimana cara menjadi relawan lapangan SHTB?</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Anda cukup menyapa admin kami via WhatsApp dan mengirimkan identitas diri. Tim kami akan menginfokan jadwal pendaftaran aksi relawan terdekat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & CTA -->
+    <section id="kontak" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-blue rounded-3xl p-8 md:p-14 overflow-hidden relative shadow-2xl reveal active">
+                <div class="absolute right-0 top-0 w-80 h-80 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                
+                <div class="grid lg:grid-cols-2 gap-10 items-center relative z-10">
+                    <div class="text-white">
+                        <span class="bg-white/20 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 inline-block">Mari Berteman & Berkolaborasi</span>
+                        <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight" id="contact-title">Satu Langkah Kecil Anda, Sejuta Harapan Bagi Desa.</h2>
+                        <p class="text-blue-100 mb-8 leading-relaxed text-sm md:text-base">
+                            Pintu kami selalu terbuka lebar bagi Bapak/Ibu mitra perusahaan (CSR), instansi pemerintah, komunitas, maupun perseorangan yang ingin menyalurkan amanah donasi atau berdiskusi merancang kegiatan sosial.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-location-dot mt-1 text-blue-300 text-xl"></i>
+                                <p class="text-sm text-blue-50">Sekretariat SHTB: <br>Jl. Budi Asih No. 5 RT 003 / RW 002, Kel. Sukaasih,<br>Kec. Tangerang, Kota Tangerang, Banten 15118</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-phone text-blue-300 text-xl"></i>
+                                <p class="text-sm text-blue-50 font-mono" id="contact-phone">Telepon/WA: 0819-9894-4468 / 0858-3917-1917</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-envelope text-blue-300 text-xl"></i>
+                                <p class="text-sm text-blue-50" id="contact-email">Email: yayasansinarhati.tb@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-3xl p-8 text-center shadow-xl">
+                        <div class="w-16 h-16 bg-[#25D366]/10 text-[#25D366] rounded-full flex items-center justify-center text-3xl mx-auto mb-4 hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Sapa Kami via WhatsApp</h3>
+                        <p class="text-sm text-slate-600 mb-6">Kami siap merespons rencana kerja sama maupun pertanyaan Anda dengan hangat dan cepat.</p>
+                        <a href="https://wa.me/6281998944468" target="_blank" class="block w-full py-4 bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                            Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 py-10 pb-28 lg:pb-10 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <img loading="lazy" src="https://ik.imagekit.io/8an7udzok/SHTB%20DOC/logo%20shtb.jpg?updatedAt=1792501285233&t=1792589968375" alt="Logo" class="h-12 w-12 mx-auto rounded-full grayscale opacity-50 mb-4" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=150&q=auto&fm=webp';">
+            <p class="text-slate-500 text-sm font-medium">
+                <span>© 2026 Yayasan Sinar Hati Titahbumi. Seluruh Hak Cipta Dilindungi.</span><br>
+                <span class="text-xs text-slate-400">Terdaftar Resmi di Kemenkumham RI & Dinas Sosial | Tangerang, Banten</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA (Bottom Floating Button) -->
+    <div class="lg:hidden fixed bottom-4 left-4 right-4 z-[90]">
+        <a href="https://wa.me/6281998944468" target="_blank" class="flex items-center justify-center gap-2 w-full bg-brand-green text-white font-black py-4 px-4 rounded-2xl shadow-[0_8px_30px_rgb(34,197,94,0.35)] border border-green-400 hover:bg-brand-dark transition-all active:scale-95">
+            <i class="fa-brands fa-whatsapp text-2xl"></i> 
+            <span class="text-sm">Kirim Pesan via WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // --- Tabs UI Logic ---
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => {
+                    b.classList.remove('bg-slate-900', 'text-white', 'active');
+                    b.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-100');
+                });
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                btn.classList.add('bg-slate-900', 'text-white', 'active');
+                btn.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-100');
+                document.getElementById(btn.getAttribute('data-target')).classList.add('active');
+            });
+        });
+
+        // --- Scroll Animation ---
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); 
+    </script>
+</body>
+</html>
